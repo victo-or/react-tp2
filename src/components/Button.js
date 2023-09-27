@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 const Button = ({text, color, onClick}) => {
     /*const onClick = (e) =>{
         console.log(e)
@@ -13,7 +14,7 @@ const Button = ({text, color, onClick}) => {
     )
 }
 Button.defaultProps = {
-    color: 'steelblue'
+    color: 'black'
 }
 Button.propTypes = {
     text: PropTypes.string.isRequired,
