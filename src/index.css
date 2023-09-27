@@ -12,7 +12,7 @@ code {
     monospace;
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 
 * {
   box-sizing: border-box;
@@ -22,20 +22,27 @@ code {
 
 body {
   font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(0deg, transparent 5%, rgba(10, 9, 9, 0.1) 25%, rgba(0, 0, 0, 0.1) 100%, transparent 50%, transparent 75%, rgba(0, 0, 0, 0.1) 75%, rgba(0, 0, 0, 0.1));
+  background-size: 20px 20px; /* Ajustez la taille des lignes selon vos préférences */
+  background-color: #e0e0e0;
 }
 
+
 .container {
-  max-width: 500px;
+  background-color: rgb(255, 234, 0);
+  box-shadow: 0 0 20px rgba(255, 234, 0, 0.75);
+  max-width: 800px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  /* border: 1px solid steelblue; */
   padding: 30px;
   border-radius: 5px;
 }
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
@@ -69,7 +76,6 @@ body {
 }
 
 .product {
-  background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
@@ -83,6 +89,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 1rem ;
 }
 
 .add-form {
@@ -128,4 +135,80 @@ footer {
 /* MOI */
 select {
   display: block;
+}
+
+h1, h2, header, .btn, footer {
+    font-family: 'Shrikhand', cursive;
+    text-align: center;
+    display: block;
+}
+h1, h2 {
+  color: blue;
+}
+h3 {
+  text-transform: uppercase;
+}
+
+nav {
+  padding-bottom: 2rem;
+}
+
+/* CSS pour SingleProduct */
+.product {
+  border: 2px solid blue;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+}
+
+/* CSS pour les boutons Modifier et Effacer */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.modify-button,
+.delete-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.logo, footer {
+  color: red; /* Couleur du texte en rouge */
+  text-shadow: 2px 2px royalblue; /* Ombre en bleu royal avec un décalage horizontal de 2px et un décalage vertical de 2px */
+  -webkit-text-stroke: 1px white; /* Contour blanc autour du texte (pour les navigateurs WebKit) */
+}
+.logo {
+  font-size: 2.5rem;
+}
+footer {
+  text-shadow: 1px 1px royalblue; 
+  -webkit-text-stroke: .5px white;
+  padding: 1rem;
+}
+
+.link {
+  padding: 1rem;
+  color: blue;
+}
+
+p {
+  color: blue;
+  padding: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+th, td {
+  border: 1px solid blue; /* Ajoute une bordure de 1 pixel de large */
+  padding: 8px; /* Espace à l'intérieur des cellules */
+  text-align: left;
 }

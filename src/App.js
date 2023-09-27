@@ -1,9 +1,13 @@
 // import './App.css';
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import ManyProducts from './components/ManyProducts'
 import AddProduct from './components/AddProduct'
-import ModifProduct from './components/ModifProduct';
+import Footer from './components/Footer'
+// import ModifProduct from './components/ModifProduct';
+import About from './components/About'
 
 function App() {
   //GLOBAL
@@ -53,23 +57,46 @@ function App() {
     setProducts(products.filter((product) => product.id !== id))
   }
   //update
-  const toggleReminder = (id) => {
-  // console.log(id)
-  setProducts(products.map((product) => product.id === id ? {...product, reminder:!product.reminder}: product ))
+  const updateProduct = (updatedProduct) => {
+    setProducts(products.map((product) => product.id === updatedProduct.id ? updatedProduct : product));
   }
+  // setProducts(products.map((product) => product.id === id ? {...product, reminder:!product.reminder}: product ))
+
   //Add
   const addProduct = (product) => {
-    console.log(product)
-  }
-
+    //console.log(product)
+    const id = Math.floor(Math.random() * 1000)
+    const newProduct = {id, ...product}
+    //console.log(newProduct)
+    setProducts([...products, newProduct])
+   }
+   
+  
+  // toggle form
   const [showAddProduct, setShowAddProduct] = useState(false)
 
+  // const location = useLocation();
+
   return (
-  <div className='container'>
-      <Header onAddBtn={() => setShowAddProduct(!showAddProduct)} showAdd={showAddProduct}/>
-      <AddProduct onAdd={addProduct}/>
-      <ManyProducts products={products} onDeleteMany={deleteProduct}  onToggleMany={toggleReminder} />
-  </div>
+  <BrowserRouter>
+    <div className='container'>
+        <Header onAddBtn={() => setShowAddProduct(!showAddProduct)} showAdd={showAddProduct}/>
+        {/* <AddProduct onAdd={addProduct}/> */}
+        {showAddProduct && <AddProduct onAdd={addProduct}/>}
+        {/* <ManyProducts products={products} onDeleteMany={deleteProduct}  onToggleMany={toggleReminder} /> */}
+
+        {/* <ManyProducts products={products} onDeleteMany={deleteProduct} onUpdateMany={updateProduct}/> */}
+
+        {/* <ModifProduct/> */}
+        <Routes>
+          <Route path='/products' element={<ManyProducts products={products} onDeleteMany={deleteProduct} onUpdateMany={updateProduct} />}/>
+        </Routes>
+        <Routes>
+          <Route path='/' element={<About/>}/>
+        </Routes>
+    </div>
+    <Footer/>
+  </BrowserRouter>
   );
 }
 export default App
